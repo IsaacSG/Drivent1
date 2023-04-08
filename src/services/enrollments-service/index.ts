@@ -16,6 +16,7 @@ async function getAddressFromCEP(cep: string): Promise <ViaCEPAddress | ViaCEPEr
   const response = result.data as ViaCEPError;
   if(response.erro){
     return response;
+
   }
 
   const address = result.data as ViaCEPAddressResponse;
