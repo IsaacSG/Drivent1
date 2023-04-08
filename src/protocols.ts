@@ -7,7 +7,7 @@ export type ViaCEPAddress = {
   logradouro: string;
   complemento: string;
   bairro: string;
-  localidade: string;
+  cidade: string;
   uf: string;
 };
 
@@ -22,3 +22,16 @@ export type RequestError = {
 export type ViaCEPError = {
   erro: boolean
 }
+
+export type ViaCEPAddressResponse = {
+  cep: string
+  logradouro: string
+  complemento: string,
+  bairro: string,
+  localidade: string,
+  uf: string,
+  ibge: string,
+  gia: string,
+  ddd: string,
+  siafi: string
+};
