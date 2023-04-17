@@ -3,17 +3,24 @@ import httpStatus from 'http-status';
 import supertest from 'supertest';
 import { createUser } from '../factories';
 import { cleanDb } from '../helpers';
+<<<<<<< HEAD
 import app, { init, close } from '@/app';
+=======
+import app, { init } from '@/app';
+>>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
 beforeAll(async () => {
   await init();
   await cleanDb();
 });
 
+<<<<<<< HEAD
 afterAll(async () => {
   await close();
 });
 
+=======
+>>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 const server = supertest(app);
 
 describe('POST /auth/sign-in', () => {
