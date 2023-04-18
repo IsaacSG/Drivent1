@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# drivent-back
-=======
 # drivent-back-prisma
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
 Back-end for Driven.t, an event management solution.
 
@@ -24,11 +20,7 @@ npm i
 5. Run all migrations
 
 ```bash
-<<<<<<< HEAD
-npm run migration:run
-=======
 npm run dev:migration:run
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 ```
 
 6. Seed db

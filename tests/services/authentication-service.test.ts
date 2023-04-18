@@ -1,13 +1,8 @@
 import faker from '@faker-js/faker';
 import { createUser } from '../factories';
 import { cleanDb } from '../helpers';
-<<<<<<< HEAD
-import { prisma } from '@/config';
-import { init, close } from '@/app';
-=======
 import { init } from '@/app';
 import { prisma } from '@/config';
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 import authenticationService, { invalidCredentialsError } from '@/services/authentication-service';
 
 beforeAll(async () => {
@@ -15,13 +10,6 @@ beforeAll(async () => {
   await cleanDb();
 });
 
-<<<<<<< HEAD
-afterAll(async () => {
-  await close();
-});
-
-=======
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 describe('signIn', () => {
   const generateParams = () => ({
     email: faker.internet.email(),

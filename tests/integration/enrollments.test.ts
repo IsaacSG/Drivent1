@@ -5,30 +5,16 @@ import httpStatus from 'http-status';
 import * as jwt from 'jsonwebtoken';
 import supertest from 'supertest';
 
-<<<<<<< HEAD
-import { createEnrollmentWithAddress, createUser, createhAddressWithCEP as createAddressWithCEP } from '../factories';
-import { cleanDb, generateValidToken } from '../helpers';
-import { prisma } from '@/config';
-import app, { init, close } from '@/app';
-=======
 import { createEnrollmentWithAddress, createUser, createhAddressWithCEP } from '../factories';
 import { cleanDb, generateValidToken } from '../helpers';
 import { prisma } from '@/config';
 import app, { init } from '@/app';
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
 beforeAll(async () => {
   await init();
   await cleanDb();
 });
 
-<<<<<<< HEAD
-afterAll(async () => {
-  await close();
-});
-
-=======
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 const server = supertest(app);
 
 describe('GET /enrollments', () => {
@@ -96,11 +82,7 @@ describe('GET /enrollments', () => {
 describe('GET /enrollments/cep', () => {
   it('should respond with status 200 when CEP is valid', async () => {
     const response = await server.get('/enrollments/cep?cep=04538132');
-<<<<<<< HEAD
-    const address = createAddressWithCEP();
-=======
     const address = createhAddressWithCEP();
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
     expect(response.status).toBe(httpStatus.OK);
     expect(response.body).toEqual(address);
@@ -214,11 +196,7 @@ describe('POST /enrollments', () => {
         birthday: faker.date.past().toISOString(),
         phone: '(21) 98999-9999',
         address: {
-<<<<<<< HEAD
-          cep: '00000-000',
-=======
           cep: '0',
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           street: faker.address.streetName(),
           city: faker.address.city(),
           number: faker.datatype.number().toString(),
@@ -228,11 +206,7 @@ describe('POST /enrollments', () => {
         },
       });
 
-<<<<<<< HEAD
-      it('should respond with status 400', async () => {
-=======
       it('should respond with status 400 and create new enrollment if there is not any', async () => {
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
         const body = generateInvalidBody();
         const token = await generateValidToken();
 

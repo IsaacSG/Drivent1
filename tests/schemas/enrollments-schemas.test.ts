@@ -1,10 +1,6 @@
 import { generateCPF, getStates } from '@brazilian-utils/brazilian-utils';
 import { faker } from '@faker-js/faker';
-<<<<<<< HEAD
-import { createOrUpdateEnrollmentSchema } from '@/schemas';
-=======
 import { createEnrollmentSchema } from '@/schemas';
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
 describe('createEnrollmentSchema', () => {
   const generateValidInput = () => ({
@@ -24,11 +20,7 @@ describe('createEnrollmentSchema', () => {
   });
 
   it('should return an error if input is not present', () => {
-<<<<<<< HEAD
-    const result = createOrUpdateEnrollmentSchema.validate(null);
-=======
     const result = createEnrollmentSchema.validate(null);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
     expect(result.error).toBeDefined();
   });
@@ -38,11 +30,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       delete input.name;
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -51,11 +39,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.name = faker.lorem.word(2);
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -66,11 +50,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       delete input.cpf;
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -79,11 +59,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.cpf = '12345678901';
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -92,11 +68,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.cpf = '012.345.678-90';
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -107,11 +79,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       delete input.birthday;
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -120,11 +88,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.birthday = 'not an iso date';
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -135,11 +99,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       delete input.phone;
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -148,11 +108,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.phone = '1234567890';
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -161,11 +117,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       input.phone = '12999887766';
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -176,11 +128,7 @@ describe('createEnrollmentSchema', () => {
       const input = generateValidInput();
       delete input.address;
 
-<<<<<<< HEAD
-      const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
       const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
       expect(error).toBeDefined();
     });
@@ -190,11 +138,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.cep;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -203,11 +147,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         input.address.cep = '1234567890';
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -216,11 +156,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         input.address.cep = '12345678';
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -231,11 +167,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.street;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -243,11 +175,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if street is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -264,11 +192,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.city;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -276,11 +200,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if city is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -297,11 +217,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.number;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -309,11 +225,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if number is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -330,11 +242,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.state;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -342,11 +250,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if state is not a valid brazilian state', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -360,11 +264,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if state is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -381,11 +281,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.neighborhood;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeDefined();
       });
@@ -393,11 +289,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if neighborhood is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -414,11 +306,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         delete input.address.addressDetail;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeUndefined();
       });
@@ -427,11 +315,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         input.address.addressDetail = '';
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeUndefined();
       });
@@ -440,11 +324,7 @@ describe('createEnrollmentSchema', () => {
         const input = generateValidInput();
         input.address.addressDetail = null;
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
         const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
         expect(error).toBeUndefined();
       });
@@ -452,11 +332,7 @@ describe('createEnrollmentSchema', () => {
       it('should return error if addressDetail is not a string', () => {
         const input = generateValidInput();
 
-<<<<<<< HEAD
-        const { error } = createOrUpdateEnrollmentSchema.validate({
-=======
         const { error } = createEnrollmentSchema.validate({
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
           ...input,
           address: {
             ...input.address,
@@ -472,11 +348,7 @@ describe('createEnrollmentSchema', () => {
   it('should return no error if schema is valid', () => {
     const input = generateValidInput();
 
-<<<<<<< HEAD
-    const { error } = createOrUpdateEnrollmentSchema.validate(input);
-=======
     const { error } = createEnrollmentSchema.validate(input);
->>>>>>> 9251cb64303fd046acdbd32d934a193a3dd5356d
 
     expect(error).toBeUndefined();
   });
