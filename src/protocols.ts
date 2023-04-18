@@ -40,3 +40,11 @@ export type ViaCEPAddressResponse = {
   ddd: string;
   siafi: string;
 };
+
+export type TicketPost = {
+  ticketTypeId: number;
+};
+
+export type TicketId = {
+  ticketId: string;
+};

@@ -1,39 +1,45 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import httpStatus from 'http-status';
 import { AuthenticatedRequest } from '@/middlewares';
 import ticketService from '@/services/ticketService';
+import { TicketPost } from '@/protocols';
 
-export async function getTicketType(req: Request, res: Response) {
+async function getAllTicketsTypes(req: AuthenticatedRequest, res: Response) {
   try {
-    const ticketsTypes = await ticketService.getTicketTypes();
-    return res.status(httpStatus.OK).send(ticketsTypes);
+    const allTicketsTypes = await ticketService.getAllTicketsTypes();
+    return res.status(httpStatus.OK).send(allTicketsTypes);
   } catch (error) {
-    res.sendStatus(httpStatus.NO_CONTENT);
+    return res.sendStatus(httpStatus.NOT_FOUND);
   }
 }
 
-export async function getTickets(req: AuthenticatedRequest, res: Response) {
-  const { userId } = req;
+async function getAllUserTickets(req: AuthenticatedRequest, res: Response) {
   try {
-    const tickets = await ticketService.getTicketByUserId(userId);
+    const userId = req.userId;
 
-    return res.status(httpStatus.OK).send(tickets);
+    const allUserTickets = await ticketService.getAllUserTickets(userId);
+    if (allUserTickets) return res.status(httpStatus.OK).json(allUserTickets);
+    else throw new Error();
   } catch (error) {
-    res.sendStatus(httpStatus.NOT_FOUND);
+    return res.status(httpStatus.NOT_FOUND).send(error);
   }
 }
 
-export async function createTickets(req: AuthenticatedRequest, res: Response) {
-  const { userId } = req;
-  const { ticketType } = req.body;
-
-  if (!ticketType) {
-    return res.sendStatus(httpStatus.BAD_REQUEST);
-  }
+async function postTicket(req: AuthenticatedRequest, res: Response) {
   try {
-    const ticket = await ticketService.createTicket(userId, ticketType);
+    const userId = req.userId;
+    const { ticketTypeId } = req.body as TicketPost;
+    const ticket = await ticketService.postTicket(userId, ticketTypeId);
     return res.status(httpStatus.CREATED).send(ticket);
   } catch (error) {
-    res.sendStatus(httpStatus.NOT_FOUND);
+    return res.status(httpStatus.NOT_FOUND).send(error);
   }
 }
+
+const ticketsController = {
+  getAllTicketsTypes,
+  getAllUserTickets,
+  postTicket,
+};
+
+export default ticketsController;
