@@ -26,6 +26,12 @@ export function handleApplicationErrors(
     });
   }
 
+  if (err.name === 'ForbiddenError') {
+    return res.status(httpStatus.FORBIDDEN).send({
+      message: err.message,
+    });
+  }
+
   if (err.name === 'UnauthorizedError') {
     return res.status(httpStatus.UNAUTHORIZED).send({
       message: err.message,
@@ -33,6 +39,12 @@ export function handleApplicationErrors(
   }
 
   if (err.name === 'NotFoundError') {
+    return res.status(httpStatus.NOT_FOUND).send({
+      message: err.message,
+    });
+  }
+
+  if (err.name === 'CannotListHotelsError') {
     return res.status(httpStatus.NOT_FOUND).send({
       message: err.message,
     });
